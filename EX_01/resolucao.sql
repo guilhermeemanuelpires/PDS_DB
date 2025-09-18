@@ -85,15 +85,33 @@
     UPDATE CLIENTES SET NOME_COMPLETO = "GUILHERME" WHERE NOME_COMPLETO = "GUILHERME PIRES";
 
 -- 24 - Exclua um cliente específico da tabela CLIENTES.
+    DELETE FROM CLIENTES WHERE NOME_COMPLETO = "GUILHERME";
 
+-- 24 - Exclua um produto específico da tabela PRODUTOS.
+    DELETE FROM PRODUTOS WHERE NOME = "MESA";
+
+-- 26 - Exclua todos os registros da tabela CLIENTES (sem apagar a tabela).
     DELETE FROM CLIENTES;
 
-	24 - Exclua um produto específico da tabela PRODUTOS.
-	26 - Exclua todos os registros da tabela CLIENTES (sem apagar a tabela).
-	27 - Alterações na Estrutura das Tabelas
-	28 - Adicione um novo campo CPF (VARCHAR 14) na tabela CLIENTES.
-	29 - Atualize os valores de CPF para os clientes existentes.
-	30 - Modifique o tipo do campo CPF para CHAR(11).
-	31 - Apague o campo CPF da tabela CLIENTES.
-	32 - Adicione um campo ESTOQUE (INT) na tabela PRODUTOS.
-	33 - Liste novamente as tabelas para confirmar a alteração do nome.
+-- 27 - Alterações na Estrutura das Tabelas
+-- 28 - Adicione um novo campo CPF (VARCHAR 14) na tabela CLIENTES.
+    ALTER TABLE CLIENTES ADD COLUMN CPF VARCHAR(14);
+
+-- 29 - Atualize os valores de CPF para os clientes existentes.
+    
+    INSERT INTO CLIENTES(NOME_COMPLETO) VALUES("GUILHERME PIRES");
+    UPDATE CLIENTES SET CPF = "99999999999999" WHERE NOME_COMPLETO = "GUILHERME PIRES";
+
+-- 30 - Modifique o tipo do campo CPF para CHAR(11).
+    UPDATE CLIENTES SET CPF = "99999999999" WHERE NOME_COMPLETO = "GUILHERME PIRES";
+    ALTER TABLE CLIENTES MODIFY COLUMN CPF CHAR(11);
+
+-- 31 - Apague o campo CPF da tabela CLIENTES.
+    ALTER TABLE CLIENTES DROP COLUMN CPF;
+
+-- 32 - Adicione um campo ESTOQUE (INT) na tabela PRODUTOS.
+    ALTER TABLE PRODUTOS ADD ESTOQUE INT;
+
+--33 - Liste novamente as tabelas para confirmar a alteração do nome.
+    DESC CLIENTES;
+    DESC PRODUTOS;
