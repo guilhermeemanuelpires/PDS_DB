@@ -53,7 +53,9 @@ SELECT
     pedidos.id_cliente,
     clientes.nome,
     pedidos.id_produto,
+    produtos.nome,
     pedidos.quantidade,
     pedidos.total
  FROM pedidos
-    JOIN clientes ON pedidos.id_cliente = clientes.id;
+    JOIN clientes ON pedidos.id_cliente = clientes.id
+    JOIN produtos ON pedidos.id_produto = produtos.id;
