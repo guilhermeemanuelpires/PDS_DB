@@ -88,8 +88,8 @@ INSERT INTO Patio (num, ender, capacidade) VALUES
 (9, 'Rua XV de Novembro, 510 - Centro', 12),
 (10, 'Av. Getúlio Vargas, 2220 - Santa Cruz', 18);
 
-INSERT INTO Estaciona (cod, Patio_num, Veiculo_placa, dtEntrada, dtSaida, hsEntrada, hsSaida) VALUES
-(1, 1, 'ABC1A23', '2025-10-10', '2025-10-10', '08:30', '12:15'),
+INSERT INTO Estaciona (cod, Patio_num, Veiculo_placa, dtEntrada, dtSaida, hsEntrada, hsSaida) 
+VALUES (1, 1, 'ABC1A23', '2025-10-10', '2025-10-10', '08:30', '12:15'),
 (2, 2, 'BCD2B34', '2025-10-11', '2025-10-11', '09:00', '14:45'),
 (3, 3, 'CDE3C45', '2025-10-11', '2025-10-11', '07:50', '13:20'),
 (4, 4, 'DEF4D56', '2025-10-12', '2025-10-12', '10:10', '16:30'),
@@ -98,5 +98,26 @@ INSERT INTO Estaciona (cod, Patio_num, Veiculo_placa, dtEntrada, dtSaida, hsEntr
 (7, 7, 'GHI7G89', '2025-10-13', '2025-10-13', '13:00', '17:00'),
 (8, 8, 'HIJ8H90', '2025-10-14', '2025-10-14', '08:40', '10:55'),
 (9, 9, 'IJK9I01', '2025-10-14', '2025-10-14', '14:00', '18:30'),
-(10 10, 'JKL0J12', '2025-10-15', '2025-10-15', '07:30', '11:20');
+(10, 10, 'JKL0J12', '2025-10-15', '2025-10-15', '07:30', '11:20');
 
+SELECT 
+    * 
+FROM Veiculo
+    JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+
+
+SELECT 
+    -- Veiculo.*,
+    Veiculo.placa,
+    Cliente.nome
+FROM Veiculo
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf;
+
+SELECT 
+    Cliente.cpf, 
+    Cliente.nome,
+    Veiculo.placa
+FROM Cliente
+    JOIN Veiculo ON Cliente.cpf = Veiculo.cliente_cpf
+WHERE Veiculo.placa = "FGH6F78";
