@@ -121,3 +121,33 @@ SELECT
 FROM Cliente
     JOIN Veiculo ON Cliente.cpf = Veiculo.cliente_cpf
 WHERE Veiculo.placa = "FGH6F78";
+
+
+SELECT COUNT(*) FROM Veiculo;
+SELECT SUM(Capacidade) FROM Patio;
+SELECT AVG(Capacidade) FROM Patio;
+SELECT MAX(Capacidade) FROM Patio;
+SELECT MIN(Capacidade) FROM Patio;
+
+
+ALTER TABLE Estaciona Modify dtEntrada DATE;
+ALTER TABLE Estaciona Modify dtSaida DATE;
+ALTER TABLE Estaciona Modify hsEntrada TIME;
+ALTER TABLE Estaciona Modify hsSaida TIME;
+
+
+SELECT 
+    e.dtEntrada,
+    e.dtSaida,
+    (e.dtSaida - e.dtEntrada) as total_dias
+FROM 
+    Estaciona as e;
+
+
+SELECT 
+    e.hsEntrada,
+    e.hsSaida,
+    TIMEDIFF(hsSaida, hsEntrada) as total_horas
+FROM estaciona as e;
+
+SELECT DATETIME(CONCAT(dtEntrada,' ', hsEntrada)) FROM ESTACIONA 
