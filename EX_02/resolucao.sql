@@ -150,4 +150,9 @@ SELECT
     TIMEDIFF(hsSaida, hsEntrada) as total_horas
 FROM estaciona as e;
 
-SELECT DATETIME(CONCAT(dtEntrada,' ', hsEntrada)) FROM ESTACIONA 
+SELECT 
+    CONCAT(dtEntrada,' ', hsEntrada) as DATA_HORA_ENTRADA,
+    CONCAT(dtSaida,' ', hsSaida) as DATA_HORA_SAIDA,
+    DATEDIFF(CONCAT(dtSaida,' ', hsSaida), CONCAT(dtEntrada,' ', hsEntrada)) TOTAL_DIAS,
+    TIMEDIFF(CONCAT(dtSaida,' ', hsSaida), CONCAT(dtEntrada,' ', hsEntrada)) TOTAL_HORAS
+FROM ESTACIONA;
