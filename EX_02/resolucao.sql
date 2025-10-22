@@ -221,3 +221,12 @@ FROM Estaciona
     JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
     JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf
 WHERE cod =2;
+
+SELECT 
+	Veiculo.placa,
+	Cliente.nome,
+	Modelo.Desc_2
+FROM 
+  Veiculo
+	JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+	JOIN Cliente On Veiculo.cliente_cpf = Cliente.cpf;
