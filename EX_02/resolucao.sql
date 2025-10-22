@@ -213,3 +213,11 @@ FROM
     JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
 WHERE
     Veiculo.placa = "EFG5E67";
+
+
+SELECT 
+    Cliente.nome 
+FROM Estaciona
+    JOIN Veiculo ON Estaciona.Veiculo_placa = veiculo.placa
+    JOIN Cliente ON Veiculo.Cliente_cpf = Cliente.cpf
+WHERE cod =2;
