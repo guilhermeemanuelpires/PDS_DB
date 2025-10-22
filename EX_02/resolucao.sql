@@ -156,3 +156,60 @@ SELECT
     DATEDIFF(CONCAT(dtSaida,' ', hsSaida), CONCAT(dtEntrada,' ', hsEntrada)) TOTAL_DIAS,
     TIMEDIFF(CONCAT(dtSaida,' ', hsSaida), CONCAT(dtEntrada,' ', hsEntrada)) TOTAL_HORAS
 FROM ESTACIONA;
+
+
+SELECT 
+    Estaciona.Veiculo_placa,
+    Veiculo.cor
+FROM Estaciona
+    JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+WHERE cod = 1;
+
+
+SELECT 
+    Veiculo.placa,
+    Modelo.Desc_2 
+FROM Veiculo 
+JOIN Modelo ON Veiculo.Modelo_codMod = Modelo.codMod
+
+SELECT 
+    estaciona.Veiculo_placa,
+    Patio.ender,
+    estaciona.dtEntrada,
+    estaciona.dtSaida 
+FROM 
+    estaciona  
+    JOIN Patio ON Estaciona.Patio_num = Patio.num
+WHERE 
+    estaciona.Veiculo_placa = "HIJ8H90";
+
+SELECT 
+    COUNT(Veiculo.cor)
+FROM Estaciona
+    JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+WHERE Veiculo.cor = "preto";
+
+SELECT 
+    Cliente.*
+FROM 
+    Veiculo 
+    JOIN Cliente ON veiculo.cliente_cpf = cliente.cpf    
+WHERE Veiculo.Modelo_codMod = 1;
+
+SELECT
+    Estaciona.Veiculo_placa,
+    Estaciona.hsEntrada,
+    Estaciona.hsSaida
+FROM 
+    Estaciona
+    JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+WHERE 
+    Veiculo.cor = "verde";
+
+SELECT 
+    Estaciona.* 
+FROM
+    Estaciona
+    JOIN Veiculo ON Estaciona.Veiculo_placa = Veiculo.placa
+WHERE
+    Veiculo.placa = "EFG5E67";
